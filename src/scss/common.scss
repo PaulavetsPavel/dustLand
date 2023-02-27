@@ -1,0 +1,112 @@
+// Заголовки, общие БЄМ блоки и проче...
+.button {
+  // .button__hexagon
+
+  &__hexagon {
+    cursor: pointer;
+    width: 258px;
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  // .button__hexagon-left
+
+  &__hexagon-left {
+    border-color: transparent #ff8e3d transparent transparent;
+    border-style: solid;
+    border-width: 25px 25px 25px 0;
+    display: block;
+    float: left;
+    height: 0;
+    width: 0;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  // .button__hexagon-center
+
+  &__hexagon-center {
+    background: #ff8e3d;
+    border: 0;
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: 500;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(100% - 50px);
+    filter: drop-shadow(0px 4px 100px #ff8e3d);
+    & > button {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      text-transform: uppercase;
+      @media (max-width: $mobile) {
+        width: 100%;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 34px;
+        text-align: left;
+      }
+    }
+    @media (max-width: $mobile) {
+      height: auto;
+      line-height: 100%;
+      text-align: left;
+    }
+  }
+
+  // .button__hexagon-right
+
+  &__hexagon-right {
+    border-color: transparent transparent transparent #ff8e3d;
+    border-style: solid;
+    border-width: 25px 0 25px 25px;
+    display: block;
+    float: right;
+    height: 0;
+    width: 0;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+}
+
+// ссылки на соцсети
+
+// .link__discord
+.link {
+  &__discord {
+    background: url(../img/icons/discord.png) center no-repeat;
+  }
+  // .link__youtube
+  &__youtube {
+    background: url(../img/icons/youtube.png) center no-repeat;
+  }
+  // .link__fdacebook
+  &__fdacebook {
+    background: url(../img/icons/facebook.png) center no-repeat;
+  }
+  // .link__telegramm
+  &__telegram {
+    background: url(../img/icons/telegram.png) center no-repeat;
+  }
+  // .link__twitter
+  &__twitter {
+    background: url(../img/icons/twitter.png) center no-repeat;
+  }
+  // .link__instagram
+  &__instagram {
+    background: url(../img/icons/instagram.png) center no-repeat;
+  }
+  // .link__reddit
+  &__reddit {
+    background: url(../img/icons/reddit.png) center no-repeat;
+  }
+}
