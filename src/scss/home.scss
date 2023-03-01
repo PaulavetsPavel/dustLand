@@ -1,10 +1,9 @@
 //====================================================================================================
-// главный фулскрин экран
+// section main
 .main {
   // .main__fulscren
 
   &__fulscren {
-    background-color: #08090c;
     width: 100%;
     height: calc(100vh - 200px);
     display: flex;
@@ -87,16 +86,18 @@
     justify-content: center;
     background-color: #22252b;
     position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-top: 40px solid #08090c;
-      border-left: 40px solid transparent;
-    }
+    clip-path: polygon(
+      0 0,
+      calc(100% - 40px) 0,
+      calc(100% - 40px) 0,
+      100% 40px,
+      100% 40px,
+      100% 100%,
+      100% 100%,
+      0 100%,
+      0 100%,
+      0 0
+    );
     @media (max-width: $mobile) {
       display: none;
     }
@@ -110,32 +111,18 @@
     text-align: center;
     background: #ff8126;
     position: relative;
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 0;
-      height: 0;
-      border-top: 40px solid #08090c;
-      @media (max-width: $mobile) {
-        border-top-width: 20px;
-      }
-    }
-    &::before {
-      left: 0;
-      border-right: 40px solid transparent;
-      @media (max-width: $mobile) {
-        border-right-width: 20px;
-      }
-    }
-    &::after {
-      right: 0;
-      border-left: 40px solid transparent;
-      @media (max-width: $mobile) {
-        border-left-width: 20px;
-      }
-    }
+    clip-path: polygon(
+      40px 0,
+      calc(100% - 40px) 0,
+      calc(100% - 40px) 0,
+      100% 40px,
+      100% 40px,
+      100% 100%,
+      100% 100%,
+      0 100%,
+      0 100%,
+      0 40px
+    );
     & > button {
       text-transform: uppercase;
       font-weight: 700;
@@ -149,6 +136,18 @@
     @media (max-width: $mobile) {
       width: 100%;
       padding: 22px 5px;
+      clip-path: polygon(
+        20px 0,
+        calc(100% - 20px) 0,
+        calc(100% - 20px) 0,
+        100% 20px,
+        100% 20px,
+        100% 100%,
+        100% 100%,
+        0 100%,
+        0 100%,
+        0 20px
+      );
     }
   }
 
@@ -165,24 +164,22 @@
     background-color: #22252b;
     text-align: center;
     position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-top: 40px solid #08090c;
-      border-right: 40px solid transparent;
-      @media (max-width: $mobile) {
-        display: none;
-      }
-    }
+    clip-path: polygon(
+      40px 0,
+      100% 0,
+      100% 0,
+      100% 100%,
+      100% 100%,
+      0 100%,
+      0 100%,
+      0 40px
+    );
     @media (max-width: $mobile) {
       width: 100%;
       font-size: 16px;
       line-height: 100%;
       padding: 24px 5px 26px;
+      clip-path: none;
     }
   }
 }
@@ -236,6 +233,165 @@
           }
         }
       }
+    }
+  }
+}
+//====================================================================================================
+
+// section participate
+
+.participate {
+  text-transform: uppercase;
+  padding: 150px 0 150px 300px;
+  position: relative;
+  background: url(../img/participate/participate_soldate.png) 100% 100%
+      no-repeat,
+    url(../img/participate/participate_image.png) 100% 50% no-repeat,
+    url(../img/participate/participate_background_second.png) 0 0 / cover
+      no-repeat;
+
+  // .participate__background
+  &__background {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    background-image: url(../img/participate/participate_background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: color-burn;
+  }
+  // .participate__wrapper
+
+  &__wrapper {
+    width: 680px;
+    position: relative;
+  }
+
+  // .participate__title
+
+  &__title {
+    margin: 0 0 40px 0;
+    text-align: center;
+  }
+
+  // .participate__title-beta
+
+  &__title-beta {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 90%;
+    margin: 0 0 16px 0;
+  }
+
+  // .participate__title-name
+
+  &__title-name {
+    font-weight: 800;
+    font-size: 55px;
+    line-height: 90%;
+    text-shadow: 0px 0px 100px rgba(255, 255, 255, 0.4);
+  }
+
+  // .participate__title-game
+
+  &__title-game {
+    font-weight: 800;
+    font-size: 124px;
+    line-height: 90%;
+    padding: 0 0 25px 0;
+  }
+
+  // .participate__title-test
+
+  &__title-test {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+  }
+
+  // .participate__description
+
+  &__description {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    margin: 0 0 20px 0;
+    padding: 36px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(25px);
+    position: relative;
+    clip-path: polygon(
+      25px 0,
+      100% 0,
+      100% 0,
+      100% 100%,
+      100% 100%,
+      0 100%,
+      0 100%,
+      0 25px
+    );
+  }
+
+  // .participate__information
+
+  &__information {
+    width: 105%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    margin: 0 0 30px 0;
+    position: relative;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 0,
+      100% 100%,
+      100% 100%,
+      25px 100%,
+      25px 100%,
+      0 calc(100% - 25px)
+    );
+  }
+  &__information-wrapper {
+    padding: 36px 150px 36px 36px;
+    background: #4e525a;
+    width: 680px;
+    position: relative;
+    & > img {
+      position: absolute;
+      bottom: 0;
+      right: -20px;
+    }
+  }
+  // .participate__button
+
+  &__button {
+    width: 430px;
+    height: 64px;
+    margin: 0 auto;
+    & button {
+      font-size: 32px;
+      line-height: 38px;
+      padding: 12px 36px 14px;
+      gap: 10px;
+    }
+    & .button__hexagon-left {
+      border-width: 32px 32px 32px 0;
+    }
+    & .button__hexagon-right {
+      border-width: 32px 0 32px 32px;
+    }
+    & .button__hexagon-center {
+      width: calc(100% - 64px);
+      filter: drop-shadow(0px 4px 50px #ff8e3d);
     }
   }
 }

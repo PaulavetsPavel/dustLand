@@ -183,6 +183,14 @@
       }
     }
   }
+  // .menu__button
+  &__button {
+    width: 258px;
+    height: 100%;
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
   // .menu__social
   &__social {
     display: none;
@@ -247,16 +255,18 @@
         margin: 0 10px 10px 0;
         background-color: rgba(247, 248, 250, 0.15);
         position: relative;
-        &::before {
-          content: '';
-          width: 0;
-          height: 0;
-          position: absolute;
-          top: 0;
-          right: 0;
-          border-top: 7px solid #fe8f3f;
-          border-left: 7px solid transparent;
-        }
+        clip-path: polygon(
+          0 0,
+          calc(100% - 7px) 0,
+          calc(100% - 7px) 0,
+          100% 7px,
+          100% 7px,
+          100% 100%,
+          100% 100%,
+          0 100%,
+          0 100%,
+          0 0
+        );
         & > a {
           display: block;
           width: 100%;
